@@ -8,6 +8,7 @@ form.addEventListener('submit', (e) => {
   gastos.push({
     id: Date.now(),
     descripcion: document.getElementById('descripcion').value,
+    categoria: document.getElementById('categoria').value,
     monto: parseFloat(document.getElementById('monto').value)
   });
   form.reset();
@@ -20,7 +21,7 @@ function render() {
   gastos.forEach(g => {
     total += g.monto;
     const li = document.createElement('li');
-    li.textContent = `${g.descripcion} — $${g.monto.toFixed(2)}`;
+    li.textContent = `[${g.categoria}] ${g.descripcion} — $${g.monto.toFixed(2)}`;
     lista.appendChild(li);
   });
   totalEl.textContent = total.toFixed(2);
