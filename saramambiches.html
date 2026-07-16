@@ -1,1 +1,21 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Gastos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Control de Gastos</h1>
+        <h1>Control de Gastos</h1>
+            <form id="form-gasto">
+                <input type="text" id="descripcion" placeholder="Descripción" required>
+                <input type="number" id="monto" placeholder="Monto" step="0.01" min="0.01" required>
+                <button type="submit">Agregar</button>
+            </form>
+            <p>Total: $<span id="total">0.00</span></p>
+            <ul id="lista-gastos"></ul>
+  <script src="script.js"></script>
+</body>
+</html>
