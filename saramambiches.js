@@ -25,4 +25,22 @@ function render() {
     lista.appendChild(li);
   });
   totalEl.textContent = total.toFixed(2);
+  actualizarGrafica()
+}
+
+let grafica = null;
+
+function actualizarGrafica() {
+  const porCategoria = {};
+  gastos.forEach(g => {
+    porCategoria[g.categoria] = (porCategoria[g.categoria] || 0) + g.monto;
+  });
+  if (grafica) grafica.destroy();
+  grafica = new Chart(document.getElementById('grafica'), {
+    type: 'pie',
+    data: {
+      labels: Object.keys(porCategoria),
+      datasets: [{ data: Object.values(porCategoria) }]
+    }
+  });
 }
